@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         name2: {
             type: DataTypes.STRING
-
         },
         name3: {
             type: DataTypes.STRING
