@@ -1,6 +1,7 @@
-const objservice = require('../services/obj.services')
+const objservice = require('../services/objectiveServices')
 
-const createobj = async (req, res) => {
+
+const createObjective = async(req, res) => {
     await objservice.crobj(req)
         .then((result) => {
             if (result) {
@@ -13,4 +14,4 @@ const createobj = async (req, res) => {
         });
 }
 
-module.exports = { createobj }
+module.exports = { createObjective }

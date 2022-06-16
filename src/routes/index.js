@@ -1,32 +1,58 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+//auth and user
+const headerRoute = require('./headerRoute')
+const workRoute = require('./workRoute')
+const skillRoute = require('./skillRoute')
+const languageRoute = require('./languageRoute')
+const educationRoute = require('./educationRoutes')
+const userRoute = require('./userRoutes')
+const objectiveRoute = require('./objectiveRoutes')
+const informationRoute = require('./informationRoutes')
 
-const user = require('../routes/user.routes');
-const edu = require('../routes/education.routes');
-const info = require('../routes/information.routes');
-const obj = require('../routes/obj.routes');
+const router = express.Router();
 
 const routes = [
+
     {
-        path: '/',
-        route: user
+        path: '/header',
+        route: headerRoute
     },
     {
-        path: '/edu',
-        route: edu
+        path: '/work',
+        route: workRoute
     },
     {
-        path: '/info',
-        route: info
+        path: '/skill',
+        route: skillRoute
     },
     {
-        path: '/obj',
-        route: obj
+        path: '/language',
+        route: languageRoute
     },
+    {
+        path: '/education',
+        route: educationRoute
+    },
+    {
+        path: '/user',
+        route: userRoute
+    },
+    {
+        path: '/objective',
+        route: objectiveRoute
+    },
+    {
+        path: '/information',
+        route: informationRoute
+    }
+
+
+
 ]
 
-routes.forEach((route) => {
-    router.use(route.path, route.route)
-})
+routes.forEach(element => {
+    router.use(element.path, element.route)
+
+});
 
 module.exports = router

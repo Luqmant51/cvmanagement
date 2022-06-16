@@ -1,12 +1,7 @@
-module.exports = (conn, DataTypes) => {
-    const work = conn.define('works', {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+module.exports = (sequelize, DataTypes) => {
+    const Header = sequelize.define('works', {
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         works_name1: {
             type: DataTypes.STRING
@@ -20,7 +15,7 @@ module.exports = (conn, DataTypes) => {
         work_desc1: {
             type: DataTypes.STRING
         },
-        works_name2: {
+        work_name2: {
             type: DataTypes.STRING
         },
         work_start2: {
@@ -32,6 +27,7 @@ module.exports = (conn, DataTypes) => {
         work_desc2: {
             type: DataTypes.STRING
         },
-    });
-    return work
+
+    })
+    return Header;
 }

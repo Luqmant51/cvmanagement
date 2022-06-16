@@ -18,7 +18,7 @@ module.exports = (conn, DataTypes) => {
             type: DataTypes.DATE
         },
         degree_name2: {
-            type: DataTypes.DATE
+            type: DataTypes.STRING
         },
         start_date2: {
             type: DataTypes.DATE
