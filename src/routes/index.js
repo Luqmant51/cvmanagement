@@ -45,9 +45,6 @@ const routes = [
         path: '/information',
         route: informationRoute
     }
-
-
-
 ]
 
 routes.forEach(element => {

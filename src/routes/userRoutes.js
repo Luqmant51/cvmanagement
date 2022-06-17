@@ -9,7 +9,7 @@ router
     .get(usercontroller.finduser)
 
 router
-    .route('login')
-    .post(usercontroller.login)
+    .route('/login')
+    .post(auth,usercontroller.login)
 
 module.exports = router

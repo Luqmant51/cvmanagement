@@ -12,16 +12,17 @@ const auth = (req, res, next) => {
         jwt.verify(token, 'tokensecret', (err, decoded) => {
             if (err) {
                 console.log(err);
-                res.redirect('/auth/login-register');
             } else {
                 // console.log(decoded);
                 res.locals.id = decoded.id
-                    // console.log(res.locals.id)
+                // console.log(res.locals.id)
 
                 next();
             }
         });
-    } else
-        res.redirect('/auth/login-register');
+    } else {
+        // res.redirect('/auth/login-register');
+        console.log("ok");
+    }
 }
 module.exports = auth

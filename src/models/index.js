@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize'); // require Sequelize
 
 // console.log(config.DB.NAME + " " + config.DB.USERNAME)
 
-const sequelize = new Sequelize('node_cv', 'root', '', {
+const sequelize = new Sequelize('maincv', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 
