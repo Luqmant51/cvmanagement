@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Skill</title>
 </head>
 <body>
-    
+    <div class="container">
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Experiance</label>
+          <input type="text" name="works_name1" class="form-control" placeholder="Experiance">
+        </div>
+        <div class="form-group">
+            <label>Start Date</label>
+            <input type="date" name="work_start1" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>End Date</label>
+            <input type="date" name="work_end1" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" name="work_desc1" class="form-control" placeholder="Description">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
 </body>
+<script>
+  const form1 = document.querySelector('form')
+  form1.addEventListener('submit',async(e)=>{
+    e.preventDefault()
+    const result = await fetch('http://localhost:3000/work/add-work',{
+      method:'POST',
+      body:JSON.stringify({
+        works_name1:form1.works_name1.value,
+        work_start1:form1.work_start1.value,
+        work_end1:form1.work_end1.value,
+        work_desc1:form1.work_desc1.value,
+      }),
+      headers: { "content-Type": "application/json" },
+    })
+    const data = await result.json()
+    console.log(data);
+  })
+</script>
 </html>

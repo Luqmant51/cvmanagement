@@ -12,7 +12,7 @@
     <form>
         <div class="form-group">
           <label >Last Degree</label>
-          <input type="email" name="degree_name1" class="form-control"placeholder="Degree Name">
+          <input type="text" name="degree_name1" class="form-control"placeholder="Degree Name">
         </div>
         <div class="form-group">
           <label>Start Date</label>
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
           <label >Second Last Degree</label>
-          <input type="email" name="degree_name2" class="form-control"placeholder="Degree Name">
+          <input type="text" name="degree_name2" class="form-control"placeholder="Degree Name">
         </div>
         <div class="form-group">
           <label>Start Date</label>
@@ -34,8 +34,28 @@
           <label>End Date</label>
           <input type="date" name="end_date2" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
 </body>
+<script>
+  const form1 = document.querySelector('form')
+  form1.addEventListener('submit',async(e)=>{
+    e.preventDefault()
+    const result = await fetch('http://localhost:3000/education/add-education',{
+      method:'POST',
+      body:JSON.stringify({
+        degree_name1 : form1.degree_name1.value, 
+        start_date1 : form1.start_date1.value,
+        end_date1 : form1.end_date1.value,
+        degree_name2 : form1.degree_name2.value, 
+        start_date2 : form1.start_date2.value,
+        end_date2 : form1.end_date2.value,
+      }),
+      headers: { "content-Type": "application/json" },
+    })
+    const data = await result.json()
+    console.log(data);
+  })
+</script>
 </html>
