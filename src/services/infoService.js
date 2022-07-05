@@ -20,9 +20,9 @@ const createinfo = async(req) => {
     return createinfo
 }
 
-const getinfo = async(req) => {
+const getinfo = async(req,res) => {
     const info = await db.findAll({
-        where: { user_id: req.params.user_id }
+        where: { user_id: res.locals.id }
     })
     return info
 }

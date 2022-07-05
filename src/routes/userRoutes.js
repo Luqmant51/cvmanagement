@@ -10,6 +10,7 @@ router
 
 router
     .route('/login')
+    .get(usercontroller.getpage)
     .post(auth,usercontroller.login)
 
 module.exports = router

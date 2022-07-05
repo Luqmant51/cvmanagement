@@ -29,11 +29,12 @@ const addHeader = async(req, res) => {
 
 // Find SIngle Header With ID
 const singleHeader = async(req, res) => {
+    console.log("in controller");
     // for category in dorp down
-    await headerService.singleHeader(req)
+    await headerService.singleHeader(req,res)
         .then((result) => {
+            console.log(result);
             res.send(result)
-
         })
         .catch((er) => {
             console.log(er)

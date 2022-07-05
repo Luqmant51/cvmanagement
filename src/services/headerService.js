@@ -4,7 +4,7 @@ const Header = db.header;
 
 
 //Create Category
-const createHeader = async(req) => {
+const createHeader = async (req) => {
 
     // console.log(name + '=' + img) just checking its cooming 
 
@@ -21,10 +21,10 @@ const createHeader = async(req) => {
 }
 
 //Create Category
-const singleHeader = async(req) => {
+const singleHeader = async (req,res) => {
 
-    //    console.log(req.params.id)
-    const oneHeader = await Header.findByPk(req.params.id)
+       console.log(res.locals.id)
+    const oneHeader = await Header.findOne({ where: { user_id: res.locals.id } })
     return oneHeader // return the value to controller
 
 }

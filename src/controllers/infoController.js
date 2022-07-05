@@ -1,6 +1,6 @@
 const infoService = require('../services/infoService');
 
-const createInfo = async(req, res) => {
+const createInfo = async (req, res) => {
     await infoService.createinfo(req)
         .then((result) => {
 
@@ -13,10 +13,9 @@ const createInfo = async(req, res) => {
         });
 }
 
-const getinfo = async(req, res) => {
-    await infoservice.getinfo(req)
+const getinfo = async (req, res) => {
+    await infoService.getinfo(req, res)
         .then((result) => {
-
             console.log(result);
             res.send(result)
 

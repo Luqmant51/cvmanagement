@@ -1,9 +1,7 @@
 const educationService = require('../services/educationService');
 
-const getAlledu = async(req, res) => {
-    const findUser = await db.education.findAll()
-    console.log(user);
-    res.send(findUser)
+const getedu = async(req, res) => {
+    res.render('pages/education')
 }
 
 const createEducation = async(req, res) => {
@@ -20,4 +18,4 @@ const createEducation = async(req, res) => {
 
 }
 
-module.exports = { getAlledu, createEducation }
+module.exports = { getedu, createEducation }
