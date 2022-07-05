@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const User = db.user
 
-const addUser = async(req) => {
+const addUser = async (req) => {
     console.log("ok");
     const bpass = await bcrypt.hash(req.body.password, 3);
     // console.log(bpass)            
@@ -11,20 +11,15 @@ const addUser = async(req) => {
     const email = req.body.email;
     const password = bpass;
     const newUser = await User.create({ name, email, password })
-        // console.log(newUser)
+    console.log(newUser)
+    res.send(200)
 
     return newUser
 }
-const finduser = async(req) => {
-    console.log("ok");
-    const email = req.body.email
-    const password = req.body.password
-    const user = await db.user.findOne({ email, password })
-    return user
-}
 
 
-const loginUser = async(req, res) => {
+
+const loginUser = async (req, res) => {
     const { email, password } = req.body; // getting value
     const user = await User.findOne({ where: { email: email } }) //find email
     const id = user.id; // find id 
@@ -58,4 +53,4 @@ const loginUser = async(req, res) => {
     }
 }
 
-module.exports = { addUser, finduser, loginUser }
+module.exports = { addUser, loginUser }

@@ -4,7 +4,7 @@ const controller = require('../controllers/educationController')
 
 router
     .route('/add-education')
-    .get(controller.getAlledu)
+    .get(controller.getedu)
     .post(controller.createEducation)
 
 module.exports = router

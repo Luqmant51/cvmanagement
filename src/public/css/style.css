@@ -2,6 +2,9 @@
   margin: 0%;
   padding: 0%;
 }
+body{
+    background: red;
+}
 .main {
   display: flex;
 }
@@ -30,7 +33,6 @@ h1{
     margin-top: 150px;
 }
 .ldcon{
-    
     margin-left: 70px;
     display: flex;
     align-items: center;

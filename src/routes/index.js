@@ -1,5 +1,6 @@
 const express = require('express');
 //auth and user
+const temp = require('./templetRoutes')
 const headerRoute = require('./headerRoute')
 const workRoute = require('./workRoute')
 const skillRoute = require('./skillRoute')
@@ -12,7 +13,14 @@ const informationRoute = require('./informationRoutes')
 const router = express.Router();
 
 const routes = [
-
+    {
+        path: '/',
+        route: temp
+    },
+    {
+        path: '/user',
+        route: userRoute
+    },
     {
         path: '/header',
         route: headerRoute
@@ -32,10 +40,6 @@ const routes = [
     {
         path: '/education',
         route: educationRoute
-    },
-    {
-        path: '/user',
-        route: userRoute
     },
     {
         path: '/objective',

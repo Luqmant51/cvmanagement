@@ -1,7 +1,7 @@
 // require express
 const express = require('express');
 // require ejs
-const ejs = require('ejs')
+require('ejs')
 var cors = require('cors')
 
 // body parser
@@ -37,8 +37,6 @@ const User = require('./routes/index');
 app.use(cors())
 //use route 
 app.use('/', User)
-
-
 
 
 app.listen(3000, console.log(`http://localhost:${3000}`))
